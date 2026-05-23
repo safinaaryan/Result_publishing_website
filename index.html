@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Exam Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <div class="logo">🜁</div>
+      <div>
+        <div class="brand">CAMPUS CONNECT</div>
+        <div class="tagline">Official Examination & Results System</div>
+      </div>
+    </div>
+    <div style="font-size: 0.85rem; letter-spacing: 1px; color: var(--gold); font-weight: 600;">ANNUAL REPORT 2026</div>
+  </header>
+
+  <main>
+
+    <div class="page active" id="page-login" style="max-width: 1000px; width: 100%;">
+      <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; width: 100%;">
+        
+        <div class="card" style="flex: 1; min-width: 320px;">
+          <h1 class="card-title">Student Login</h1>
+          <p class="card-subtitle">Enter your credentials to view your annual exam report</p>
+          <div class="alert error" id="login-error" style="display:none;"></div>
+          
+          <div class="form-group">
+            <label for="student-id">Student ID</label>
+            <input type="text" id="student-id" placeholder="e.g. STU001" autocomplete="off" />
+            <p class="field-hint">Your unique student identification number</p>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" />
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" placeholder="Re-enter your password" />
+            <p class="field-hint" id="pw-match-hint"></p>
+          </div>
+          <button class="btn" id="login-btn" onclick="handleLogin()">View My Result</button>
+          
+          
+          </p>
+        </div>
+
+        <div class="card" style="flex: 1; min-width: 320px;">
+          <h1 class="card-title">Teacher Login</h1>
+          <p class="card-subtitle">Enter your credentials to upload and manage student marks</p>
+          <div class="alert error" id="teacher-login-error" style="display:none;"></div>
+          
+          <div class="form-group">
+            <label for="teacher-id">Teacher ID</label>
+            <input type="text" id="teacher-id" placeholder="e.g. TEA001" autocomplete="off" />
+            <p class="field-hint">Your unique instructor identification number</p>
+          </div>
+          <div class="form-group">
+            <label for="teacher-password">Password</label>
+            <input type="password" id="teacher-password" placeholder="Enter your password" />
+          </div>
+          <div class="form-group">
+            <label for="teacher-confirm-password">Confirm Password</label>
+            <input type="password" id="teacher-confirm-password" placeholder="Re-enter your password" />
+            <p class="field-hint" id="teacher-pw-match-hint"></p>
+          </div>
+          <button class="btn" id="teacher-login-btn" onclick="handleTeacherLogin()">Access Teacher Dashboard</button>
+          
+    
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="page" id="page-result" style="max-width:760px">
+      </div>
+
+    <div class="page" id="page-teacher" style="max-width: 500px;">
+      <div class="card">
+        <h1 class="card-title">Teacher Portal</h1>
+        <p class="card-subtitle" id="teacher-welcome">Welcome, Instructor</p>
+        
+        <div class="alert error" id="marks-error" style="display:none;"></div>
+        <div class="alert success" id="marks-success" style="display:none;"></div>
+
+        <form id="marks-form" onsubmit="handleMarksSubmission(event)">
+          <div class="form-group">
+            <label for="input-student-id">Student ID</label>
+            <input type="text" id="input-student-id" placeholder="e.g. STU001" required />
+          </div>
+          <div class="form-group">
+            <label for="input-student-name">Student Name</label>
+            <input type="text" id="input-student-name" placeholder="e.g. John Doe" required />
+          </div>
+          <div class="form-group">
+            <label for="input-student-class">Class / Department</label>
+            <input type="text" id="input-student-class" placeholder="e.g. Computer Science" required />
+          </div>
+          <div class="form-group">
+            <label for="input-subject-code">Subject Code</label>
+            <input type="text" id="input-subject-code" placeholder="e.g. CSE101" required />
+          </div>
+          <div class="form-group">
+            <label for="input-marks">Marks Obtained</label>
+            <input type="text" id="input-marks" placeholder="e.g. 85" required />
+          </div>
+          <div class="form-group">
+            <label for="input-grade">Grade Letter</label>
+            <input type="text" id="input-grade" placeholder="e.g. A+" required />
+          </div>
+          <div class="form-group">
+            <label for="input-year">Exam Year</label>
+            <input type="text" id="input-year" value="2026" required />
+          </div>
+          <button type="submit" class="btn" id="submit-marks-btn">Save to Database</button>
+        </form>
+
+        <div style="text-align:right; margin-top:1.5rem">
+          <button class="btn-logout" onclick="logoutAll()">← Back to Login</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Campus Connect Examination Authority. All Rights Reserved.</p>
+    <p style="font-size:0.72rem; opacity:0.6; margin-top:0.25rem">Secure Encryption Enabled</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
