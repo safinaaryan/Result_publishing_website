@@ -1,4 +1,5 @@
 **🎓 Campus Connect: Student Examination & Results Portal**
+
 Welcome to Campus Connect! This is a full-stack, web-based examination and results portal designed to make tracking academic performance simple and efficient. Whether you are a teacher inputting grades or a student eagerly checking your annual report, this system provides a secure, seamless, and user-friendly experience.
 
 🌟 What is this project?
